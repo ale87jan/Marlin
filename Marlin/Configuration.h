@@ -495,9 +495,9 @@
     #define DEFAULT_Ki_LIST {   1.54,   1.54 }
     #define DEFAULT_Kd_LIST {  76.55,  76.55 }
   #else
-    #define DEFAULT_Kp  21.73
-    #define DEFAULT_Ki   1.54
-    #define DEFAULT_Kd  76.55
+    #define DEFAULT_Kp  29.01
+    #define DEFAULT_Ki   2.95
+    #define DEFAULT_Kd  71.45
   #endif
 #endif // PIDTEMP
 
@@ -1134,7 +1134,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR false //CAMBIAR AQUI
+#define INVERT_E0_DIR true //CAMBIAR AQUI
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -1171,7 +1171,7 @@
 #define Y_MIN_POS 0 //-18
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS Y_BED_SIZE
+#define Y_MAX_POS Y_BED_SIZE // Cambiar aqui
 #define Z_MAX_POS 250
 
 /**
