@@ -1163,16 +1163,16 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 235 //229
-#define Y_BED_SIZE 235 //206
+#define X_BED_SIZE 230
+#define Y_BED_SIZE 190
 
 // Travel limits (mm) after homing, corresponding to endstop positions. //CAMBIAR AQUI TRAVEL LIMITS
-#define X_MIN_POS 0 //-1
-#define Y_MIN_POS 0 //-18
+#define X_MIN_POS -6
+#define Y_MIN_POS -20
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS Y_BED_SIZE // Cambiar aqui
-#define Z_MAX_POS 250
+#define X_MAX_POS X_BED_SIZE +15 //245 con este x_min_pos
+#define Y_MAX_POS Y_BED_SIZE +35 //225 con este y_min_pos
+#define Z_MAX_POS 240
 
 /**
  * Software Endstops
@@ -1200,7 +1200,7 @@
 #endif
 
 #if EITHER(MIN_SOFTWARE_ENDSTOPS, MAX_SOFTWARE_ENDSTOPS)
-  //#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
+  #define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
 #endif
 
 /**
@@ -1315,8 +1315,8 @@
  */
 //#define AUTO_BED_LEVELING_3POINT
 //#define AUTO_BED_LEVELING_LINEAR
-#define AUTO_BED_LEVELING_BILINEAR
-//#define AUTO_BED_LEVELING_UBL //CAMBIAR AQUI
+//#define AUTO_BED_LEVELING_BILINEAR
+#define AUTO_BED_LEVELING_UBL //CAMBIAR AQUI
 //#define MESH_BED_LEVELING 
 
 /**
@@ -1330,7 +1330,7 @@
 /**
  * Auto-leveling needs preheating
  */
-//#define PREHEAT_BEFORE_LEVELING //CAMBIAR AQUI
+#define PREHEAT_BEFORE_LEVELING //CAMBIAR AQUI
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
   #define LEVELING_NOZZLE_TEMP 180   // (°C) Only applies to E0 at this time
   #define LEVELING_BED_TEMP     60
@@ -1407,7 +1407,7 @@
   //========================= Unified Bed Leveling ============================
   //===========================================================================
 
-  //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
+  #define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
   #define MESH_INSET 5              // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X 7      // Don't use more than 15 points per axis, implementation limited.
@@ -1624,7 +1624,7 @@
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
 #define PREHEAT_1_TEMP_HOTEND 200
-#define PREHEAT_1_TEMP_BED     65
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED   255 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "PETG"

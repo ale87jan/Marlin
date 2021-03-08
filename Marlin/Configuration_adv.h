@@ -1477,8 +1477,8 @@
   #define STATUS_BED_ANIM             // Use a second bitmap to indicate bed heating
   #define STATUS_CHAMBER_ANIM         // Use a second bitmap to indicate chamber heating
   //#define STATUS_CUTTER_ANIM        // Use a second bitmap to indicate spindle / laser active
-  //#define STATUS_ALT_BED_BITMAP     // Use the alternative bed bitmap //CAMBIAR AQUI
-  //#define STATUS_ALT_FAN_BITMAP     // Use the alternative fan bitmap
+  #define STATUS_ALT_BED_BITMAP     // Use the alternative bed bitmap //CAMBIAR AQUI
+  #define STATUS_ALT_FAN_BITMAP     // Use the alternative fan bitmap
   //#define STATUS_FAN_FRAMES 3       // :[0,1,2,3,4] Number of fan animation frames
   //#define STATUS_HEAT_PERCENT       // Show heating in a progress bar
   #define BOOT_MARLIN_LOGO_ANIMATED // Animated Marlin logo. Costs ~‭3260 (or ~940) bytes of PROGMEM.
@@ -3364,10 +3364,10 @@
   #define USER_GCODE_1 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nG28\nG29"
 
   #define USER_DESC_2 "Unload filament"
-  #define USER_GCODE_2 "G21 \nM83 \nM109 S205.000 \nM300 S440 P200 \nM300 S660 P250 \nM300 S880 P300 \nM0 Click to unload filament \nG1 E20 F100 \n \nG1 E-650 F2000 \nG92 E0 \nM82"
+  #define USER_GCODE_2 "M83 \nM109 S205.000 \nM300 S440 P200 \nM300 S660 P250 \nM300 S880 P300 \nM0 Click to unload filament \nG1 E20 F100 \n \nG1 E-650 F2000 \nG92 E0 \nM82"
   
   #define USER_DESC_3 "Load filament"
-  #define USER_GCODE_3 "G21 \nM83 \nM109 S205.000 \nM300 S440 P200 \nM300 S660 P250 \nM300 S880 P300 \nM0 Click to load filament \nG1 E450 F2000 \n \nG1 E50 F100 \nG92 E0 \nM82"
+  #define USER_GCODE_3 "M83 \nM109 S205.000 \nM300 S440 P200 \nM300 S660 P250 \nM300 S880 P300 \nM0 Click to load filament \nG1 E450 F2000 \n \nG1 E50 F100 \nG92 E0 \nM82"
 
   #define USER_DESC_4 "Preheat for " PREHEAT_1_LABEL
   #define USER_GCODE_4 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
