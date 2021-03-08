@@ -495,9 +495,9 @@
     #define DEFAULT_Ki_LIST {   1.54,   1.54 }
     #define DEFAULT_Kd_LIST {  76.55,  76.55 }
   #else
-    #define DEFAULT_Kp  29.01
-    #define DEFAULT_Ki   2.95
-    #define DEFAULT_Kd  71.45
+    #define DEFAULT_Kp 24.04 //Cambiar aqui_PID
+    #define DEFAULT_Ki 2.29
+    #define DEFAULT_Kd 62.98
   #endif
 #endif // PIDTEMP
 
