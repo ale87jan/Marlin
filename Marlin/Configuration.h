@@ -629,7 +629,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP 125       //CAMBIAR AQUI
+#define BED_MAXTEMP 90       //CAMBIAR AQUI
 #define CHAMBER_MAXTEMP  60
 
 /**
@@ -670,9 +670,9 @@
     #define DEFAULT_Ki_LIST {   1.54,   1.54 }
     #define DEFAULT_Kd_LIST {  76.55,  76.55 }
   #else
-    #define DEFAULT_Kp 24.04  //CAMBIAR AQUI
-    #define DEFAULT_Ki 2.29   //CAMBIAR AQUI
-    #define DEFAULT_Kd 62.98  //CAMBIAR AQUI
+    #define DEFAULT_Kp 24.87  //CAMBIAR AQUI
+    #define DEFAULT_Ki 2.33   //CAMBIAR AQUI
+    #define DEFAULT_Kd 66.38  //CAMBIAR AQUI
   #endif
 #endif
 
@@ -1774,7 +1774,7 @@
  */
 #define FILAMENT_RUNOUT_SENSOR  //CAMBIAR AQUI
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
-  #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
+  #define FIL_RUNOUT_ENABLED_DEFAULT false // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS 1            // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
 
   #define FIL_RUNOUT_STATE LOW            // Pin state indicating that filament is NOT present.
@@ -2216,7 +2216,7 @@
 // Preheat Constants - Up to 10 are supported without changes
 //
 #define PREHEAT_1_LABEL "PLA"       //CAMBIAR AQUI
-#define PREHEAT_1_TEMP_HOTEND 180   //CAMBIAR AQUI
+#define PREHEAT_1_TEMP_HOTEND 200   //CAMBIAR AQUI
 #define PREHEAT_1_TEMP_BED 60       //CAMBIAR AQUI
 #define PREHEAT_1_TEMP_CHAMBER 35   //CAMBIAR AQUI
 #define PREHEAT_1_FAN_SPEED 100   // Value from 0 to 255
