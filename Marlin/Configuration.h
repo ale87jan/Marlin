@@ -665,7 +665,7 @@
  * (especially before PID tuning). Setting the target temperature too close to MAXTEMP guarantees
  * a MAXTEMP shutdown! Use these values to forbid temperatures being set too close to MAXTEMP.
  */
-#define HOTEND_OVERSHOOT 15   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
+#define HOTEND_OVERSHOOT 10   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
 #define BED_OVERSHOOT 10      // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
 #define COOLER_OVERSHOOT 2    // (°C) Forbid temperatures closer than OVERSHOOT
 
@@ -1220,10 +1220,14 @@
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
 =======
 #define DEFAULT_MAX_FEEDRATE { 500, 500, 25, 50 }
 >>>>>>> ea266fe83d (v1)
+=======
+#define DEFAULT_MAX_FEEDRATE { 500, 500, 25, 30 }
+>>>>>>> acae522606 (Cambiado overshoot del hotend para permitir setpoint de 240)
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
