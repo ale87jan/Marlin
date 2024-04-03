@@ -641,7 +641,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP 90
+#define BED_MAXTEMP 95
 #define CHAMBER_MAXTEMP  60
 
 /**
@@ -651,7 +651,7 @@
  * a MAXTEMP shutdown! Use these values to forbid temperatures being set too close to MAXTEMP.
  */
 #define HOTEND_OVERSHOOT 10   // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
-#define BED_OVERSHOOT 10      // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
+#define BED_OVERSHOOT 5      // (°C) Forbid temperatures over MAXTEMP - OVERSHOOT
 #define COOLER_OVERSHOOT 2    // (°C) Forbid temperatures closer than OVERSHOOT
 
 //===========================================================================
@@ -685,9 +685,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp 23.22
-    #define DEFAULT_Ki 4.64
-    #define DEFAULT_Kd 29.08
+    #define DEFAULT_Kp 20.02
+    #define DEFAULT_Ki 4.00
+    #define DEFAULT_Kd 25.05
   #endif
 #else
   #define BANG_MAX 255    // Limit hotend current while in bang-bang mode; 255=full current
@@ -1204,7 +1204,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE { 500, 500, 25, 30 }
+#define DEFAULT_MAX_FEEDRATE { 1000, 1000, 30, 100 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1512,7 +1512,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -40, -10, -0.52 }
+#define NOZZLE_TO_PROBE_OFFSET { -38, -3, -0.52 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1724,14 +1724,14 @@
 
 // The size of the printable area
 #define X_BED_SIZE 230
-#define Y_BED_SIZE 230
+#define Y_BED_SIZE 225
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -6
-#define Y_MIN_POS -8
+#define X_MIN_POS -5
+#define Y_MIN_POS -16
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE + 15
-#define Y_MAX_POS Y_BED_SIZE + 5
+#define X_MAX_POS X_BED_SIZE + 18
+#define Y_MAX_POS Y_BED_SIZE + 2
 #define Z_MAX_POS 240
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
@@ -2162,7 +2162,7 @@
  *    +-------------->X     +-------------->X     +-------------->Y
  *     XY_SKEW_FACTOR        XZ_SKEW_FACTOR        YZ_SKEW_FACTOR
  */
-//#define SKEW_CORRECTION
+#define SKEW_CORRECTION
 
 #if ENABLED(SKEW_CORRECTION)
   // Input all length measurements here:
@@ -2173,7 +2173,7 @@
   // Or, set the XY skew factor directly:
   //#define XY_SKEW_FACTOR 0.0
 
-  //#define SKEW_CORRECTION_FOR_Z
+  #define SKEW_CORRECTION_FOR_Z
   #if ENABLED(SKEW_CORRECTION_FOR_Z)
     #define XZ_DIAG_AC 282.8427124746
     #define XZ_DIAG_BD 282.8427124746
