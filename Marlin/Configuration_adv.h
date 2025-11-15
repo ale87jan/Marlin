@@ -308,8 +308,8 @@
  * THERMAL_PROTECTION_HYSTERESIS and/or THERMAL_PROTECTION_PERIOD
  */
 #if ALL(HAS_HOTEND, THERMAL_PROTECTION_HOTENDS)
-  #define THERMAL_PROTECTION_PERIOD        40 // (seconds)
-  #define THERMAL_PROTECTION_HYSTERESIS     4 // (°C)
+  #define THERMAL_PROTECTION_PERIOD 60        // (seconds)
+  #define THERMAL_PROTECTION_HYSTERESIS 10     // (°C)
 
   #define ADAPTIVE_FAN_SLOWING              // Slow down the part-cooling fan if the temperature drops
   #if ENABLED(ADAPTIVE_FAN_SLOWING)
@@ -339,8 +339,8 @@
  * Thermal Protection parameters for the bed are just as above for hotends.
  */
 #if TEMP_SENSOR_BED && ENABLED(THERMAL_PROTECTION_BED)
-  #define THERMAL_PROTECTION_BED_PERIOD        20 // (seconds)
-  #define THERMAL_PROTECTION_BED_HYSTERESIS     2 // (°C)
+  #define THERMAL_PROTECTION_BED_PERIOD 20        // (seconds)
+  #define THERMAL_PROTECTION_BED_HYSTERESIS 2     // (°C)
 
   /**
    * As described above, except for the bed (M140/M190/M303).
@@ -353,7 +353,7 @@
  * Thermal Protection parameters for the heated chamber.
  */
 #if TEMP_SENSOR_CHAMBER && ENABLED(THERMAL_PROTECTION_CHAMBER)
-  #define THERMAL_PROTECTION_CHAMBER_PERIOD    20 // (seconds)
+  #define THERMAL_PROTECTION_CHAMBER_PERIOD 20    // (seconds)
   #define THERMAL_PROTECTION_CHAMBER_HYSTERESIS 2 // (°C)
 
   /**
@@ -367,8 +367,8 @@
  * Thermal Protection parameters for the laser cooler.
  */
 #if TEMP_SENSOR_COOLER && ENABLED(THERMAL_PROTECTION_COOLER)
-  #define THERMAL_PROTECTION_COOLER_PERIOD     10 // (seconds)
-  #define THERMAL_PROTECTION_COOLER_HYSTERESIS  3 // (°C)
+  #define THERMAL_PROTECTION_COOLER_PERIOD 10     // (seconds)
+  #define THERMAL_PROTECTION_COOLER_HYSTERESIS 3  // (°C)
 
   /**
    * Laser cooling watch settings (M143/M193).
@@ -1135,7 +1135,7 @@
    *
    * :{'M3_CW':'M3 Clockwise','M3_CCW':'M3 Counter-Clockwise','M4_CW':'M4 Clockwise','M4_CCW':'M4 Counter-Clockwise','M5_CW':'M5 Clockwise','M5_CCW':'M5 Counter-Clockwise'}
    */
-  #define TRAMMING_SCREW_THREAD M3_CW
+  #define TRAMMING_SCREW_THREAD 40
 
 #endif
 
@@ -1284,8 +1284,8 @@
 #define DISABLE_IDLE_E true    // Shut down all idle extruders
 
 // Default Minimum Feedrates for printing and travel moves
-#define DEFAULT_MINIMUMFEEDRATE       0.0     // (mm/s) Minimum feedrate. Set with M205 S.
-#define DEFAULT_MINTRAVELFEEDRATE     0.0     // (mm/s) Minimum travel feedrate. Set with M205 T.
+#define DEFAULT_MINIMUMFEEDRATE 0.0           // (mm/s) Minimum feedrate. Set with M205 S.
+#define DEFAULT_MINTRAVELFEEDRATE 0.0         // (mm/s) Minimum travel feedrate. Set with M205 T.
 
 // Minimum time that a segment needs to take as the buffer gets emptied
 #define DEFAULT_MINSEGMENTTIME 20000          // (µs) Set with M205 B.
@@ -1415,7 +1415,7 @@
  * Multi-stepping sends steps in bursts to reduce MCU usage for high step-rates.
  * This allows higher feedrates than the MCU could otherwise support.
  */
-#define MULTISTEPPING_LIMIT   16  // :[1, 2, 4, 8, 16, 32, 64, 128]
+#define MULTISTEPPING_LIMIT 16    // :[1, 2, 4, 8, 16, 32, 64, 128]
 
 /**
  * Adaptive Step Smoothing increases the resolution of multi-axis moves, particularly at step frequencies
@@ -1550,7 +1550,7 @@
   #if HAS_BED_PROBE
 
     // Show Deploy / Stow Probe options in the Motion menu.
-    #define PROBE_DEPLOY_STOW_MENU
+    //#define PROBE_DEPLOY_STOW_MENU
 
     // Add calibration in the Probe Offsets menu to compensate for X-axis twist.
     //#define X_AXIS_TWIST_COMPENSATION
@@ -1582,9 +1582,9 @@
    * will be shown in the move submenus.
    */
 
-  #define MANUAL_MOVE_DISTANCE_MM                    10, 1.0, 0.1  // (mm)
-  //#define MANUAL_MOVE_DISTANCE_MM         100, 50, 10, 1.0, 0.1  // (mm)
-  //#define MANUAL_MOVE_DISTANCE_MM    500, 100, 50, 10, 1.0, 0.1  // (mm)
+  #define MANUAL_MOVE_DISTANCE_MM 10, 1.0, 0.1                     // (mm)
+  #define MANUAL_MOVE_DISTANCE_MM 10, 1.0, 0.1          // (mm)
+  #define MANUAL_MOVE_DISTANCE_MM 10, 1.0, 0.1     // (mm)
 
   // Manual move distances for INCH_MODE_SUPPORT
   #define MANUAL_MOVE_DISTANCE_IN                          0.100, 0.010, 0.001  // (in)
@@ -1696,12 +1696,12 @@
 
 // Some displays offer Feedrate / Flow editing.
 #if ANY(HAS_MARLINUI_MENU, DWIN_CREALITY_LCD, DWIN_LCD_PROUI, MALYAN_LCD, TOUCH_SCREEN, ULTIPANEL_FEEDMULTIPLY)
-  #define SPEED_EDIT_MIN    10  // (%) Feedrate percentage edit range minimum
-  #define SPEED_EDIT_MAX   999  // (%) Feedrate percentage edit range maximum
+  #define SPEED_EDIT_MIN 10     // (%) Feedrate percentage edit range minimum
+  #define SPEED_EDIT_MAX 999    // (%) Feedrate percentage edit range maximum
 #endif
 #if ANY(HAS_MARLINUI_MENU, DWIN_CREALITY_LCD, DWIN_LCD_PROUI, MALYAN_LCD, TOUCH_SCREEN)
-  #define FLOW_EDIT_MIN     10  // (%) Flow percentage edit range minimum
-  #define FLOW_EDIT_MAX    999  // (%) Flow percentage edit range maximum
+  #define FLOW_EDIT_MIN 10      // (%) Flow percentage edit range minimum
+  #define FLOW_EDIT_MAX 999     // (%) Flow percentage edit range maximum
 #endif
 
 // Add 'M73' to set print job progress, overrides Marlin's built-in estimate
@@ -1848,7 +1848,7 @@
 
   // SD Card Sorting options
   #if ENABLED(SDCARD_SORT_ALPHA)
-    #define SDSORT_REVERSE     false  // Default to sorting file names in reverse order.
+    #define SDSORT_REVERSE false      // Default to sorting file names in reverse order.
     #define SDSORT_LIMIT 40           // Maximum number of sorted items (10-256). Costs 27 bytes each.
     #define SDSORT_FOLDERS -1         // -1=above  0=none  1=below
     #define SDSORT_GCODE false        // Enable G-code M34 to set sorting behaviors: M34 S<-1|0|1> F<-1|0|1>
@@ -1858,7 +1858,7 @@
     #define SDSORT_DYNAMIC_RAM false  // Use dynamic allocation (within SD menus). Least expensive option. Set SDSORT_LIMIT before use!
     #define SDSORT_CACHE_VFATS 2      // Maximum number of 13-byte VFAT entries to use for sorting.
                                       // Note: Only affects SCROLL_LONG_FILENAMES with SDSORT_CACHE_NAMES but not SDSORT_DYNAMIC_RAM.
-    #define SDSORT_QUICK       true   // Use Quick Sort as a sorting algorithm. Otherwise use Bubble Sort.
+    #define SDSORT_QUICK true         // Use Quick Sort as a sorting algorithm. Otherwise use Bubble Sort.
   #endif
 
   // Allow international symbols in long filenames. To display correctly, the
@@ -2368,13 +2368,13 @@
  *
  * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  */
-//#define LIN_ADVANCE
+#define LIN_ADVANCE
 
 #if ANY(LIN_ADVANCE, FT_MOTION)
   #if ENABLED(DISTINCT_E_FACTORS)
-    #define ADVANCE_K { 0.22 }    // (mm) Compression length per 1mm/s extruder speed, per extruder. Override with 'M900 T<tool> K<mm>'.
+    #define ADVANCE_K 0.0    // (mm) Compression length per 1mm/s extruder speed, per extruder. Override with 'M900 T<tool> K<mm>'.
   #else
-    #define ADVANCE_K 0.22        // (mm) Compression length for all extruders. Override with 'M900 K<mm>'.
+    #define ADVANCE_K 0.0        // (mm) Compression length for all extruders. Override with 'M900 K<mm>'.
   #endif
   //#define ADVANCE_K_EXTRA       // Add a second linear advance constant, configurable with 'M900 L'.
 #endif
@@ -3065,11 +3065,11 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(X)
-    #define X_CURRENT       580             // (mA) RMS current. Multiply by 1.414 for peak current.
-    #define X_CURRENT_HOME  (X_CURRENT/2)   // (mA) RMS current for homing. (Typically lower than *_CURRENT.)
-    #define X_MICROSTEPS     16             // 0..256
-    #define X_RSENSE          0.11
-    #define X_CHAIN_POS      -1        // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
+    #define X_CURRENT 580                   // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT_HOME (X_CURRENT/2)    // (mA) RMS current for homing. (Typically lower than *_CURRENT.)
+    #define X_MICROSTEPS 16                 // 0..256
+    #define X_RSENSE 0.11
+    #define X_CHAIN_POS -1             // -1..0: Not chained. 1: MCU MOSI connected. 2: Next in chain, ...
     //#define X_INTERPOLATE  true      // Enable to override 'INTERPOLATE' for the X axis
     //#define X_HOLD_MULTIPLIER 0.5    // Enable to override 'HOLD_MULTIPLIER' for the X axis
   #endif
@@ -3460,27 +3460,27 @@
   //#define HYBRID_THRESHOLD
 
   #define X_HYBRID_THRESHOLD 100      // [mm/s]
-  #define X2_HYBRID_THRESHOLD    100
+  #define X2_HYBRID_THRESHOLD 100   
   #define Y_HYBRID_THRESHOLD 100
-  #define Y2_HYBRID_THRESHOLD    100
+  #define Y2_HYBRID_THRESHOLD 100   
   #define Z_HYBRID_THRESHOLD 3
-  #define Z2_HYBRID_THRESHOLD      3
-  #define Z3_HYBRID_THRESHOLD      3
-  #define Z4_HYBRID_THRESHOLD      3
-  #define I_HYBRID_THRESHOLD       3  // [linear=mm/s, rotational=°/s]
-  #define J_HYBRID_THRESHOLD       3  // [linear=mm/s, rotational=°/s]
-  #define K_HYBRID_THRESHOLD       3  // [linear=mm/s, rotational=°/s]
-  #define U_HYBRID_THRESHOLD       3  // [mm/s]
-  #define V_HYBRID_THRESHOLD       3
-  #define W_HYBRID_THRESHOLD       3
+  #define Z2_HYBRID_THRESHOLD 3     
+  #define Z3_HYBRID_THRESHOLD 3     
+  #define Z4_HYBRID_THRESHOLD 3     
+  #define I_HYBRID_THRESHOLD 3        // [linear=mm/s, rotational=°/s]
+  #define J_HYBRID_THRESHOLD 3        // [linear=mm/s, rotational=°/s]
+  #define K_HYBRID_THRESHOLD 3        // [linear=mm/s, rotational=°/s]
+  #define U_HYBRID_THRESHOLD 3        // [mm/s]
+  #define V_HYBRID_THRESHOLD 3      
+  #define W_HYBRID_THRESHOLD 3      
   #define E0_HYBRID_THRESHOLD 30
-  #define E1_HYBRID_THRESHOLD     30
-  #define E2_HYBRID_THRESHOLD     30
-  #define E3_HYBRID_THRESHOLD     30
-  #define E4_HYBRID_THRESHOLD     30
-  #define E5_HYBRID_THRESHOLD     30
-  #define E6_HYBRID_THRESHOLD     30
-  #define E7_HYBRID_THRESHOLD     30
+  #define E1_HYBRID_THRESHOLD 30    
+  #define E2_HYBRID_THRESHOLD 30    
+  #define E3_HYBRID_THRESHOLD 30    
+  #define E4_HYBRID_THRESHOLD 30    
+  #define E5_HYBRID_THRESHOLD 30    
+  #define E6_HYBRID_THRESHOLD 30    
+  #define E7_HYBRID_THRESHOLD 30    
 
   /**
    * Use StallGuard to home / probe X, Y, Z.
