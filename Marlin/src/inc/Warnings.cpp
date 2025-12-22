@@ -31,6 +31,10 @@
 // Warnings! Located here so they will appear just once in the build output.
 //
 
+#if __cplusplus < 201703L
+  #warning "This build does not have access to >= c++17 features."
+#endif
+
 // static_warning works like a static_assert but only emits a (messy) warning.
 #ifdef __GNUC__
   namespace mfwarn {
@@ -795,7 +799,7 @@
 
 #if ANY(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0) && DISABLED(RGB_LED)
   #warning "Your FYSETC Mini Panel works best with RGB_LED."
-#elif ANY(FYSETC_MINI_12864_2_0, FYSETC_MINI_12864_2_1) && DISABLED(LED_USER_PRESET_STARTUP)
+#elif ENABLED(FYSETC_MINI_12864_2_0) && DISABLED(LED_USER_PRESET_STARTUP)
   #warning "Your FYSETC/MKS/BTT/BEEZ Mini Panel works best with LED_USER_PRESET_STARTUP."
 #endif
 
@@ -942,6 +946,12 @@
   #endif
   #if ENABLED(LIN_ADVANCE)
     #warning "Be aware that FT_MOTION K factor is now set with M900 K (same as LIN_ADVANCE)."
+    #if DISABLED(FTM_SMOOTHING)
+      #warning "For higher print quality enable FTM_SMOOTHING with FTM_SMOOTHING_TIME_E to tame Linear Advance accelerations."
+    #endif
+  #endif
+  #if DISABLED(FTM_SHAPER_E)
+    #warning "For higher print quality enable FTM_SHAPER_E (even if shaper is NONE) to allow axis synchronization."
   #endif
 #endif
 #if ENABLED(FTM_HOME_AND_PROBE)
